@@ -1,14 +1,17 @@
 import puppeteer from "puppeteer";
+import { url } from "./config";
 
 async function scrape() {
-  const browser = await puppeteer.launch({});
+  const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
-  await page.goto("https://www.thesaurus.com/browse/smart");
-  var element = await page.waitForSelector(
-    "#root > div > main > div.HjmF_6uYqSRDdE7yX2Wy.ytunuYhmdZru4dW63UJL > section > section.wjLcgFJpqs9M6QJsPf5v > section.q7ELwPUtygkuxUXXOE9t.ULFYcLlui2SL1DTZuWLn > ul > li:nth-child(1) > a"
-  );
-  var text = await page.evaluate((element) => element?.textContent, element);
-  console.log(text);
+  await page.goto(url);
+  for (let i = 2; i < 22; i++) {
+    var element = await page.waitForSelector(
+      `#__next > main > div.sc-aXZVg.korseV.shelfContent > div > div > div > ul > div:nth-child(${i}) > div > div.col-5.team-name.col-team-name > div > div.text-team-name.truncate`
+    );
+    var text = await page.evaluate((element) => element?.textContent, element);
+    console.log(text);
+  }
   browser.close();
 }
 scrape();
