@@ -77,7 +77,7 @@ export const getScore = async (req: Request, res: Response) => {
       status: {
         code: 200,
         message: "success",
-        description: "get all account success",
+        description: "get all score success",
       },
       data: response,
     });
