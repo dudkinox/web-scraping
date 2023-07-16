@@ -1,0 +1,17 @@
+{
+  "name": "web-scraping",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/dudkinox/web-scraping.git",
+  "author": "ศุภณัฐ ชินราช <45527907+dudkinox@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/puppeteer": "^7.0.4",
+    "puppeteer": "^20.8.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "start": "ts-node index.ts"
+  }
+}
